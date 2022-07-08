@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="defaultprojectspring:war">
+    <output-path>$PROJECT_DIR$/EquipmentManagement-project-spring-master/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>defaultprojectspring</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="EquipmentManagement-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="defaultprojectspring:war exploded" />
+    </root>
+  </artifact>
+</component>
