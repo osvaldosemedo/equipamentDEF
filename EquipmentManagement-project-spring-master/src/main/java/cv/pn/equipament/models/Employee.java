@@ -20,12 +20,12 @@ public class Employee extends CommonsAttributes {
     private String patent;
 
     @Column(name = "dm_type_user", nullable = true, columnDefinition = "character varying(40)")
-    private String DmTypeUser;
+    private String dmTypeUser;
 
     @ManyToOne
     @JoinColumn(name = "id_livinRoom",  referencedColumnName = "id",  updatable=false)
     @JsonBackReference
-    private  LivingRoom livinRoom;
+    private  LivingRoom livingRoom;
 
 
 

@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="livinRoom")
+@Table(name="room")
 public class LivingRoom extends CommonsAttributes{
 
     @Column(name = "name", nullable = true, columnDefinition = "character varying(100)")

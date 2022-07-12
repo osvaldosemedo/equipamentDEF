@@ -7,8 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Data
-@Table(name = "department")
 @Entity
+@Table(name = "department")
+
 public class Department extends CommonsAttributes {
 
     @Column(name = "name", nullable = true, columnDefinition = "character varying(100)")

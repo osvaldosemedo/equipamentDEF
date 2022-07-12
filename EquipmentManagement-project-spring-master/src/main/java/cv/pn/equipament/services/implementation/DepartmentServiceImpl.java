@@ -34,7 +34,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         Optional<Department> optionalDepartment = departmentRepository.findByCode(departmentDTO.getCode());
         if(!optionalDepartment.isEmpty()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("codigo existente")).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Departamento ")).build();
 
         }
 
@@ -65,7 +65,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         Optional<Department> optionalDepartment = departmentRepository.findById(id);
         if (optionalDepartment.isEmpty()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("contactar Administrador: "+MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Departamento "+MessageState.ID_NAO_EXISTE)).build();
         }
         Department department = optionalDepartment.get();
 
@@ -92,13 +92,17 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         Optional<Department> optionalDepartment = departmentRepository.findById(id);
         if(!optionalDepartment.isPresent()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("contactar Administrador: "+MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Departamento "+MessageState.ID_NAO_EXISTE)).build();
 
         }
         Department department = optionalDepartment.get();
 
-        DepartmentDTO departmentDTO = new DepartmentDTO();
+
         try {
+
+            DepartmentDTO departmentDTO = new DepartmentDTO();
+
+
             departmentDTO.setName(department.getName());
             departmentDTO.setCode(department.getCode());
             departmentDTO.setSelfId(department.getSelfId());

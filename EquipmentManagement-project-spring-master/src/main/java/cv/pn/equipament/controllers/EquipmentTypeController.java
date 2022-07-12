@@ -42,7 +42,7 @@ public class EquipmentTypeController {
 
     @GetMapping("/detail/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ResponseEntity<Object> detailDomain(@PathVariable("id") String id) {
+    public ResponseEntity<Object> detailEquipmentType(@PathVariable("id") String id) {
         APIResponse response = equipmentTypeService.getEquipmentType(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
 
@@ -50,7 +50,7 @@ public class EquipmentTypeController {
 
     @GetMapping("/list/{selfId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ResponseEntity<Object> listDomain(@PathVariable("selfId") String id) {
+    public ResponseEntity<Object> listEquipmentType(@PathVariable("selfId") String id) {
         APIResponse response = equipmentTypeService.getAllEquipmentType(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
 

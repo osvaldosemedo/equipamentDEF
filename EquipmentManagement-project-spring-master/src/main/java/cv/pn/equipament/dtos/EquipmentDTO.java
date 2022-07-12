@@ -16,10 +16,15 @@ public class EquipmentDTO {
     private String rom;
     private String ram;
     private String generation;
-    private String velocity;
-    private String systemType;
+    private  String velocity;
+    private  String systemType;
     private String dmStateEquip;
-    private String screen;
+    private  String screen;
+    private String obs;
+    private String idEquipmentType;
+    private String idLivingRoom;
+    private String idEmployee;
+
 
 
 

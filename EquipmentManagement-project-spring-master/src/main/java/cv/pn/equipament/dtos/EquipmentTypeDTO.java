@@ -13,4 +13,6 @@ public class EquipmentTypeDTO {
     private String code;
     private String selfId;
 
+
+
 }

@@ -5,8 +5,8 @@ import cv.pn.equipament.utilities.APIResponse;
 
 public interface EquipmentService {
     APIResponse insertEquipment(EquipmentDTO equipmentDTO);
-    APIResponse updateEquipment(String id, EquipmentDTO equipmentDTO );
+    APIResponse updateEquipment(EquipmentDTO equipmentDTO );
     APIResponse getEquipment(String id);
-    APIResponse getALLEquipment(String serialNumber);
+    APIResponse getALLEquipment();
 
 }

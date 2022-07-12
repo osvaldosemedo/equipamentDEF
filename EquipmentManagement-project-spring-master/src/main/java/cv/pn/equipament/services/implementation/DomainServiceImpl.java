@@ -29,7 +29,7 @@ public class DomainServiceImpl implements DomainService {
 
         Optional<Domain> optionalDomain = domainRepository.findByCode(domainDTO.getCode());
         if(!optionalDomain.isEmpty()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("codigo existente")).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Dominio ")).build();
 
         }
 
@@ -58,7 +58,7 @@ public class DomainServiceImpl implements DomainService {
     public APIResponse updateDomain(String id, DomainDTO domainDTO) {
         Optional<Domain> optionalDomain = domainRepository.findById(id);
         if (optionalDomain.isEmpty()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("contactar Administrador: "+MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Dominio "+MessageState.ID_NAO_EXISTE)).build();
         }
         Domain domain = optionalDomain.get();
 
@@ -86,7 +86,7 @@ public class DomainServiceImpl implements DomainService {
     public APIResponse getDomain(String id) {
         Optional<Domain> optionalDomain = domainRepository.findById(id);
         if (!optionalDomain.isPresent()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Contactar Administrador: " + MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Dominio " + MessageState.ID_NAO_EXISTE)).build();
 
         }
         Domain domain = optionalDomain.get();

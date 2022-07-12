@@ -43,10 +43,13 @@ public class Equipment extends CommonsAttributes {
     @Column(name = "screen", nullable = true, columnDefinition = "character varying(40)")
     private String screen;
 
+    @Column(name = "obs", nullable = true, columnDefinition = "character varying(40)")
+    private String obs;
+
     @ManyToOne
     @JoinColumn(name = "id_sala",  referencedColumnName = "id",  updatable=false)
     @JsonBackReference
-    private  LivingRoom livinRoom;
+    private  LivingRoom livingRoom;
 
     @ManyToOne
     @JoinColumn(name = "id_user",  referencedColumnName = "id",  updatable=false)
@@ -57,7 +60,6 @@ public class Equipment extends CommonsAttributes {
     @JoinColumn(name = "id_equipmentType",  referencedColumnName = "id",  updatable=false)
     @JsonBackReference
     private  EquipmentType equipmentType;
-
 
 
 }

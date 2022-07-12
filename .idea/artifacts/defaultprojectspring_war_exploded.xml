@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="defaultprojectspring:war exploded">
-    <output-path>$PROJECT_DIR$/EquipmentManagement-project-spring-master/target/EquipmentManagement-0.0.1-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/EquipmentManagement-project-spring-master/target/EquipmentManagement</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -95,7 +95,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/EquipmentManagement-project-spring-master/target/EquipmentManagement-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/EquipmentManagement-project-spring-master/target/EquipmentManagement/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="defaultprojectspring/web/Web" />
     </root>

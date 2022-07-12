@@ -25,7 +25,7 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
 
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findByCode(equipmentTypeDTO.getCode());
         if(!optionalEquipmentType.isEmpty()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("codigo existente")).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Tipo Equipamento")).build();
 
         }
 
@@ -51,7 +51,7 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
     public APIResponse updateEquipmentType(String id, EquipmentTypeDTO equipmentTypeDTO) {
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findById(id);
         if(optionalEquipmentType.isEmpty()){
-            return  APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Contactar Administrador" + MessageState.ID_NAO_EXISTE)).build();
+            return  APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Tipo Equipamento" + MessageState.ID_NAO_EXISTE)).build();
         }
 
         EquipmentType equipmentType = optionalEquipmentType.get();
@@ -75,7 +75,7 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
     public APIResponse getEquipmentType(String id) {
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findById(id);
         if(!optionalEquipmentType.isPresent()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Contactar Administrador" + MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Tipo Equipamento" + MessageState.ID_NAO_EXISTE)).build();
         }
         EquipmentType equipmentType = optionalEquipmentType.get();
 

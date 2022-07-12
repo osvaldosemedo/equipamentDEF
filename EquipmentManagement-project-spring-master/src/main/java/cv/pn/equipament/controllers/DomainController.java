@@ -1,7 +1,6 @@
 package cv.pn.equipament.controllers;
 
 
-import cv.pn.equipament.dtos.DepartmentDTO;
 import cv.pn.equipament.dtos.DomainDTO;
 import cv.pn.equipament.services.implementation.DomainServiceImpl;
 import cv.pn.equipament.utilities.APIResponse;
