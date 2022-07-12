@@ -167,7 +167,6 @@ public class EquipmentServiceImpl implements EquipmentService {
             equipmentTypeDTO.setCode(equipment.getEquipmentType().getCode());
             equipmentTypeDTO.setSelfId(equipment.getEquipmentType().getSelfId());
 
-
             EmployeeDTO employeeDTO = new EmployeeDTO();
 
             employeeDTO.setName(equipment.getEmployee().getName());
