@@ -13,6 +13,9 @@ public class Equipment extends CommonsAttributes {
     @Column(name = "name", nullable = true, columnDefinition = "character varying(100)")
     private String name;
 
+    @Column(name = "brand", nullable = true, columnDefinition = "character varying(40)")
+    private String brand;
+
     @Column(name = "model", nullable = true, columnDefinition = "character varying(40)")
     private String model;
 

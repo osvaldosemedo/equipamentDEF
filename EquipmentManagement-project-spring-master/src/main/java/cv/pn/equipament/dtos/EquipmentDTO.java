@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class EquipmentDTO {
     private String id;
     private String name;
+    private String brand;
     private String model;
     private String serialNumber;
     private String processor;
