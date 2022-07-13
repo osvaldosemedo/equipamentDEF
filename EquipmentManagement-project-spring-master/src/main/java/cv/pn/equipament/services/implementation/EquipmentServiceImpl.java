@@ -52,6 +52,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 
         try {
             equipment.setName(equipmentDTO.getName());
+            equipment.setBrand(equipmentDTO.getBrand());
             equipment.setModel(equipmentDTO.getModel());
             equipment.setSerialNumber(equipmentDTO.getSerialNumber());
             equipment.setProcessor(equipmentDTO.getProcessor());
@@ -105,6 +106,7 @@ public class EquipmentServiceImpl implements EquipmentService {
         try{
 
         equipment.setName(equipmentDTO.getName());
+        equipment.setBrand(equipmentDTO.getBrand());
         equipment.setModel(equipmentDTO.getModel());
         equipment.setSerialNumber(equipmentDTO.getSerialNumber());
         equipment.setProcessor(equipmentDTO.getProcessor());
@@ -146,8 +148,9 @@ public class EquipmentServiceImpl implements EquipmentService {
         try{
 
             EquipmentDTO equipmentDTO = new EquipmentDTO();
-
+            equipmentDTO.setId(equipment.getId());
             equipmentDTO.setName(equipment.getName());
+            equipmentDTO.setBrand(equipment.getBrand());
             equipmentDTO.setModel(equipment.getModel());
             equipmentDTO.setSerialNumber(equipment.getSerialNumber());
             equipmentDTO.setProcessor(equipment.getProcessor());
@@ -163,12 +166,14 @@ public class EquipmentServiceImpl implements EquipmentService {
 
             EquipmentTypeDTO equipmentTypeDTO = new EquipmentTypeDTO();
 
+            equipmentTypeDTO.setId(equipment.getEquipmentType().getId());
             equipmentTypeDTO.setName(equipment.getEquipmentType().getName());
             equipmentTypeDTO.setCode(equipment.getEquipmentType().getCode());
             equipmentTypeDTO.setSelfId(equipment.getEquipmentType().getSelfId());
 
             EmployeeDTO employeeDTO = new EmployeeDTO();
 
+            employeeDTO.setId(equipment.getEmployee().getId());
             employeeDTO.setName(equipment.getEmployee().getName());
             employeeDTO.setFunction(equipment.getEmployee().getFunction());
             employeeDTO.setPatent(equipment.getEmployee().getPatent());
@@ -177,6 +182,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 
             LivingRoomDTO livingRoomDTO = new LivingRoomDTO();
 
+            livingRoomDTO.setId(equipment.getLivingRoom().getId());
             livingRoomDTO.setName(equipment.getLivingRoom().getName());
             livingRoomDTO.setNumber(equipment.getLivingRoom().getNumber());
             livingRoomDTO.setDmPiso(equipment.getLivingRoom().getDmPiso());
@@ -186,7 +192,7 @@ public class EquipmentServiceImpl implements EquipmentService {
 
             DepartmentDTO departmentDTO = new DepartmentDTO();
 
-
+            departmentDTO.setId(equipment.getLivingRoom().getDepartment().getId());
             departmentDTO.setName(equipment.getLivingRoom().getDepartment().getName());
             departmentDTO.setCode(equipment.getLivingRoom().getDepartment().getCode());
             departmentDTO.setSelfId(equipment.getLivingRoom().getDepartment().getSelfId());
