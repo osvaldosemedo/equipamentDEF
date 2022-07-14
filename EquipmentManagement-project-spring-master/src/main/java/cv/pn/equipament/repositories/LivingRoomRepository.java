@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LivingRoomRepository extends JpaRepository<LivingRoom, String> {
-    List<LivingRoom> findByDmDivision(String DmDivision);
+    List<LivingRoom> findAll();
 }

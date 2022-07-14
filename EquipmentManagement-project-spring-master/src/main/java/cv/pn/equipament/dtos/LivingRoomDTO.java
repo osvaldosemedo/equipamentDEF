@@ -15,5 +15,6 @@ public class LivingRoomDTO {
     private String dmPiso;
     private String dmDivision;
     private String contactPhone;
+    private String idDepartment;
 
 }

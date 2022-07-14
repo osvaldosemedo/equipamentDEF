@@ -14,4 +14,5 @@ public class DepartmentDTO {
     private String selfId;
     private String userCreated;
 
+
 }

@@ -27,7 +27,7 @@ public class LivingRoomServiceImpl implements LivingRoomService {
     public APIResponse insertLivingRoom(LivingRoomDTO livingRoomDTO) {
 
 
-        Optional<Department> optionalDepartment = departmentRepository.findById(livingRoomDTO.getDmDivision());
+        Optional<Department> optionalDepartment = departmentRepository.findById(livingRoomDTO.getIdDepartment());
         if(!optionalDepartment.isPresent()){
             return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Sala ")).build();
 
@@ -110,13 +110,13 @@ public class LivingRoomServiceImpl implements LivingRoomService {
 }
 
     @Override
-    public APIResponse getAllLivingRoom(String dmDivision) {
-        List<LivingRoom> livingRooms = livingRoomRepository.findByDmDivision(dmDivision);
+    public APIResponse getAllLivingRoom() {
+        List<LivingRoom> livingRooms = livingRoomRepository.findAll();
 
-        List<Object> livingRoomDTOS = livingRooms.stream()
+        /*List<Object> livingRoomDTOS = livingRooms.stream()
                 .map(livingRoom -> new LivingRoomDTO(livingRoom.getId(),livingRoom.getName(),livingRoom.getNumber(),livingRoom.getDmPiso(),livingRoom.getDmDivision(),livingRoom.getContactPhone())
-                ).collect(Collectors.toList());
-        return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(livingRoomDTOS).build();
+                ).collect(Collectors.toList());*/
+        return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(livingRoomRepository.findAll())).build();
 
     }
 }
