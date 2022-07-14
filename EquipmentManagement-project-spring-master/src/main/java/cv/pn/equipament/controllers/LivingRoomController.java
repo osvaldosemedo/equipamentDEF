@@ -44,9 +44,9 @@ public class LivingRoomController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-        @GetMapping("/list/{dmDivision}")
+        @GetMapping("/list")
         @ResponseStatus(code = HttpStatus.OK)
-        public ResponseEntity<Object> listLivingRoom(@PathVariable("dmDivision") String id) {
-            APIResponse response = livingRoomService.getAllLivingRoom(id);
+        public ResponseEntity<Object> listLivingRoom() {
+            APIResponse response = livingRoomService.getAllLivingRoom();
             return new ResponseEntity<>(response, HttpStatus.OK);
 }}

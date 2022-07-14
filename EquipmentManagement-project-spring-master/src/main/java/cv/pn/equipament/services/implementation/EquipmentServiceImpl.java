@@ -148,6 +148,7 @@ public class EquipmentServiceImpl implements EquipmentService {
         try{
 
             EquipmentDTO equipmentDTO = new EquipmentDTO();
+
             equipmentDTO.setId(equipment.getId());
             equipmentDTO.setName(equipment.getName());
             equipmentDTO.setBrand(equipment.getBrand());

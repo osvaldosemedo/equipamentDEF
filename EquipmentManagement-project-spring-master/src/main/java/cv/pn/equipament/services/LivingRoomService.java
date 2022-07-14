@@ -7,5 +7,5 @@ public interface LivingRoomService {
     APIResponse insertLivingRoom(LivingRoomDTO livingRoomDTO);
     APIResponse updateLivingRoom(String id, LivingRoomDTO livingRoomDTO);
     APIResponse getLivingRoom (String id);
-    APIResponse getAllLivingRoom( String dmDivision);
+    APIResponse getAllLivingRoom();
 }
