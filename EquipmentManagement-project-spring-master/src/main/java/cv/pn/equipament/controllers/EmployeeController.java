@@ -45,9 +45,9 @@ public class EmployeeController {
         APIResponse response = employeeService.getEmployee(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-        @GetMapping("/list/{dmTypeUser}")
+        @GetMapping("/list")
         @ResponseStatus(code = HttpStatus.OK)
-        public ResponseEntity <Object> listEmployee(@PathVariable("dmTypeUser")String id) {
-            APIResponse response = employeeService.getAllEmployee(id);
+        public ResponseEntity <Object> listEmployee(){
+            APIResponse response = employeeService.getAllEmployee();
             return new ResponseEntity<>(response, HttpStatus.OK);
 }}

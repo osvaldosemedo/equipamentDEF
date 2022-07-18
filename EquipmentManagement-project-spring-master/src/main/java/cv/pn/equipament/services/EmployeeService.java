@@ -7,5 +7,5 @@ public interface EmployeeService {
     APIResponse insertEmployee(EmployeeDTO employeeDTO);
     APIResponse updateEmployee(String id, EmployeeDTO employeeDTO);
     APIResponse getEmployee(String id);
-    APIResponse getAllEmployee(String dmTypeUser);
+    APIResponse getAllEmployee();
 }

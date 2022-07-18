@@ -101,13 +101,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 }
 
     @Override
-    public APIResponse getAllEmployee(String dmTypeUser) {
-        List<Employee> employees = employeeRepository.findByDmTypeUser(dmTypeUser);
+    public APIResponse getAllEmployee() {
+        List<Employee> employees = employeeRepository.findAll();
 
         /*List<Object> employeesDTOS = employees.stream()
                 .map(employee -> new EmployeeDTO(employee.getId(), employee.getName(),employee.getFunction(),employee.getPatent(),employee.getDmTypeUser())
                 ).collect(Collectors.toList());*/
-        return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).build();
+        return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(employeeRepository.findAll())).build();
 
     }
 }
