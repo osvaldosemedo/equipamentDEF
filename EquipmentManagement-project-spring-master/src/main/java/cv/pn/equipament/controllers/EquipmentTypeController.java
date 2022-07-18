@@ -1,9 +1,9 @@
 package cv.pn.equipament.controllers;
 
 
-import cv.pn.equipament.dtos.DomainDTO;
+
 import cv.pn.equipament.dtos.EquipmentTypeDTO;
-import cv.pn.equipament.services.implementation.DomainServiceImpl;
+
 import cv.pn.equipament.services.implementation.EquipmentTypeServiceImpl;
 import cv.pn.equipament.utilities.APIResponse;
 import org.springframework.http.HttpStatus;
@@ -55,4 +55,5 @@ public class EquipmentTypeController {
         return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
+
 }

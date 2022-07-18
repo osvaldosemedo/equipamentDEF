@@ -24,7 +24,7 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
     public APIResponse insertEquipmentType(EquipmentTypeDTO equipmentTypeDTO) {
 
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findByCode(equipmentTypeDTO.getCode());
-        if(!optionalEquipmentType.isEmpty()){
+        if (!optionalEquipmentType.isEmpty()) {
             return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Tipo Equipamento")).build();
 
         }
@@ -33,48 +33,47 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
 
         try {
 
-         equipmentType.setName(equipmentTypeDTO.getName());
-         equipmentType.setCode(equipmentTypeDTO.getCode());
-         equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
+            equipmentType.setName(equipmentTypeDTO.getName());
+            equipmentType.setCode(equipmentTypeDTO.getCode());
+            equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
 
-        equipmentTypeRepository.save(equipmentType);
-        return APIResponse.builder().status(true).statusText(MessageState.INSERIDO_COM_SUCESSO).build();
+            equipmentTypeRepository.save(equipmentType);
+            return APIResponse.builder().status(true).statusText(MessageState.INSERIDO_COM_SUCESSO).build();
+        } catch (Exception e) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList(e.getMessage())).build();
+
+        }
+
     }
-        catch (Exception e) {
-        return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList(e.getMessage())).build();
-
-    }
-
-}
 
     @Override
     public APIResponse updateEquipmentType(String id, EquipmentTypeDTO equipmentTypeDTO) {
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findById(id);
-        if(optionalEquipmentType.isEmpty()){
-            return  APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Tipo Equipamento" + MessageState.ID_NAO_EXISTE)).build();
+        if (optionalEquipmentType.isEmpty()) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Tipo Equipamento" + MessageState.ID_NAO_EXISTE)).build();
         }
 
         EquipmentType equipmentType = optionalEquipmentType.get();
 
         try {
-         equipmentType.setName(equipmentTypeDTO.getName());
-         equipmentType.setCode(equipmentTypeDTO.getCode());
-         equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
+            equipmentType.setName(equipmentTypeDTO.getName());
+            equipmentType.setCode(equipmentTypeDTO.getCode());
+            equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
 
-        equipmentTypeRepository.save(equipmentType);
-        return APIResponse.builder().status(true).statusText(MessageState.ATUALIZADO_COM_SUCESSO).build();
+            equipmentTypeRepository.save(equipmentType);
+            return APIResponse.builder().status(true).statusText(MessageState.ATUALIZADO_COM_SUCESSO).build();
 
-    } catch (Exception e) {
-        return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList(e.getMessage())).build();
+        } catch (Exception e) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList(e.getMessage())).build();
+
+        }
 
     }
-
-}
 
     @Override
     public APIResponse getEquipmentType(String id) {
         Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findById(id);
-        if(!optionalEquipmentType.isPresent()){
+        if (!optionalEquipmentType.isPresent()) {
             return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Tipo Equipamento" + MessageState.ID_NAO_EXISTE)).build();
         }
         EquipmentType equipmentType = optionalEquipmentType.get();
@@ -82,20 +81,18 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
         EquipmentTypeDTO equipmentTypeDTO = new EquipmentTypeDTO();
 
         try {
-         equipmentTypeDTO.setName(equipmentType.getName());
-         equipmentTypeDTO.setCode(equipmentType.getCode());
-         equipmentTypeDTO.setSelfId(equipmentType.getSelfId());
+            equipmentTypeDTO.setName(equipmentType.getName());
+            equipmentTypeDTO.setCode(equipmentType.getCode());
+            equipmentTypeDTO.setSelfId(equipmentType.getSelfId());
 
-        return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(equipmentTypeDTO)).build();
+            return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(equipmentTypeDTO)).build();
 
 
+        } catch (Exception e) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList(e.getMessage())).build();
+        }
 
-    } catch (Exception e) {
-        return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList(e.getMessage())).build();
     }
-
-}
-
 
 
     @Override
@@ -103,8 +100,20 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
         List<EquipmentType> equipmentTypes = equipmentTypeRepository.findBySelfId(selfId);
 
         List<Object> equipmentTypesDTOS = equipmentTypes.stream()
-                .map(equipmentType -> new EquipmentTypeDTO(equipmentType.getId(),equipmentType.getName(),equipmentType.getCode(),equipmentType.getSelfId())
+                .map(equipmentType -> new EquipmentTypeDTO(equipmentType.getId(), equipmentType.getName(), equipmentType.getCode(), equipmentType.getSelfId())
                 ).collect(Collectors.toList());
         return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(equipmentTypesDTOS).build();
+
     }
-}
+
+
+        @Override
+        public APIResponse getAllEquipmentType() {
+            List<EquipmentType> equipmentTypes = equipmentTypeRepository.findAll();
+
+            return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(equipmentTypeRepository.findAll())).build();
+
+
+        }
+
+    }

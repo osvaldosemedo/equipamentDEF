@@ -12,4 +12,5 @@ public interface DepartmentService {
     APIResponse updateDepartment(String id, DepartmentDTO departmentDTO);
     APIResponse getDepartment(String id);
     APIResponse getAllDepartment(String selfId);
+
 }

@@ -112,8 +112,8 @@ public class DomainServiceImpl implements DomainService {
 
 
   @Override
-    public APIResponse getAllDomain(String selfId) {
-        List<Domain> domains = domainRepository.findBySelfId(selfId);
+    public APIResponse getAllDomain(String selfId, String D) {
+        List<Domain> domains = domainRepository.findBySelfIdAndDomain(selfId, D);
 
         List<Object> domainsDTOS = domains.stream()
                 .map(domain -> new DomainDTO(domain.getId(),domain.getName(),domain.getCode(),domain.getDomain(),domain.getOrder(),domain.getSelfId())

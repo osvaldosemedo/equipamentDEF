@@ -8,4 +8,6 @@ public interface EquipmentTypeService {
     APIResponse updateEquipmentType(String id, EquipmentTypeDTO equipmentTypeDTO);
     APIResponse getEquipmentType(String id);
     APIResponse getAllEquipmentType(String selfId);
+
+    APIResponse getAllEquipmentType();
 }

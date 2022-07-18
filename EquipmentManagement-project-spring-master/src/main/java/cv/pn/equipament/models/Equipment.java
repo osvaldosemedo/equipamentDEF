@@ -50,7 +50,7 @@ public class Equipment extends CommonsAttributes {
     private String obs;
 
     @ManyToOne
-    @JoinColumn(name = "id_sala",  referencedColumnName = "id",  updatable=false)
+    @JoinColumn(name = "id_livingRoom",  referencedColumnName = "id",  updatable=false)
     @JsonBackReference
     private  LivingRoom livingRoom;
 
