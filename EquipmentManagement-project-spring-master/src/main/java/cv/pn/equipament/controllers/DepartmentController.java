@@ -41,14 +41,14 @@ public class DepartmentController {
 
     @GetMapping("/detail/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ResponseEntity <Object> detailDepartment(@PathVariable("id")String id) {
+    public ResponseEntity<Object> detailDepartment(@PathVariable("id") String id) {
         APIResponse response = departmentService.getDepartment(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/list/{selfId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ResponseEntity <Object> listDepartment(@PathVariable("selfId")String id) {
+    public ResponseEntity<Object> listDepartment(@PathVariable("selfId") String id) {
         APIResponse response = departmentService.getAllDepartment(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

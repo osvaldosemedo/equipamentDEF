@@ -48,10 +48,10 @@ public class DomainController {
         APIResponse response = domainService.getDomain(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-    @GetMapping("/list/{selfId}")
+    @GetMapping("/list/{domain}/{selfId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ResponseEntity <Object> listDomain(@PathVariable("selfId")String id) {
-        APIResponse response = domainService.getAllDomain(id);
+    public ResponseEntity <Object> listDomain(@PathVariable("selfId")String id, @PathVariable("domain")String d) {
+        APIResponse response = domainService.getAllDomain(id, d);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

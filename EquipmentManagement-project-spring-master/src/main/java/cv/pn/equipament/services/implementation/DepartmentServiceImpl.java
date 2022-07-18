@@ -28,12 +28,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentRepository departmentRepository;
 
 
-
     @Override
     public APIResponse insertDepartment(DepartmentDTO departmentDTO) {
 
         Optional<Department> optionalDepartment = departmentRepository.findByCode(departmentDTO.getCode());
-        if(!optionalDepartment.isEmpty()){
+        if (!optionalDepartment.isEmpty()) {
             return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Departamento ")).build();
 
         }
@@ -48,24 +47,22 @@ public class DepartmentServiceImpl implements DepartmentService {
 
             departmentRepository.save(department);
 
-           return APIResponse.builder().status(true).statusText(MessageState.INSERIDO_COM_SUCESSO).build();
+            return APIResponse.builder().status(true).statusText(MessageState.INSERIDO_COM_SUCESSO).build();
 
 
+        } catch (Exception e) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList(e.getMessage())).build();
 
         }
-    	catch (Exception e) {
-        return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList(e.getMessage())).build();
 
     }
-
-}
 
 
     public APIResponse updateDepartment(String id, DepartmentDTO departmentDTO) {
 
         Optional<Department> optionalDepartment = departmentRepository.findById(id);
         if (optionalDepartment.isEmpty()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Departamento "+MessageState.ID_NAO_EXISTE)).build();
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO_AO_ATUALIZAR).details(Arrays.asList("Departamento " + MessageState.ID_NAO_EXISTE)).build();
         }
         Department department = optionalDepartment.get();
 
@@ -91,8 +88,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
         Optional<Department> optionalDepartment = departmentRepository.findById(id);
-        if(!optionalDepartment.isPresent()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Departamento "+MessageState.ID_NAO_EXISTE)).build();
+        if (!optionalDepartment.isPresent()) {
+            return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList("Departamento " + MessageState.ID_NAO_EXISTE)).build();
 
         }
         Department department = optionalDepartment.get();
@@ -113,21 +110,24 @@ public class DepartmentServiceImpl implements DepartmentService {
             return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(departmentDTO)).build();
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return APIResponse.builder().status(false).statusText(MessageState.ERRO).details(Arrays.asList(e.getMessage())).build();
         }
     }
 
     @Override
-    public APIResponse  getAllDepartment(String selfId) {
+    public APIResponse getAllDepartment(String selfId) {
         List<Department> departments = departmentRepository.findBySelfId(selfId);
 
         List<Object> departmentDTOS = departments.stream()
-                .map(department -> new DepartmentDTO(department.getId(),department.getName(),department.getCode(),department.getSelfId(),department.getUserCreated())
+                .map(department -> new DepartmentDTO(department.getId(), department.getName(), department.getCode(), department.getSelfId(), department.getUserCreated())
                 ).collect(Collectors.toList());
         return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(departmentDTOS).build();
 
     }
+
+
+
 }
 
 

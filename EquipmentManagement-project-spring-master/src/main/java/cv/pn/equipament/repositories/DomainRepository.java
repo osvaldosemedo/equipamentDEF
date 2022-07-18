@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface DomainRepository extends JpaRepository<Domain, String> {
     Optional<Domain> findByCode(String Code);
-    List<Domain> findBySelfId(String SelfId);
+    List<Domain> findBySelfIdAndDomain(String SelfId, String D);
 
 
 

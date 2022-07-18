@@ -15,4 +15,6 @@ public interface DepartmentRepository extends JpaRepository <Department, String>
    List<Department> findBySelfId(String s);
 
 
+
+
 }

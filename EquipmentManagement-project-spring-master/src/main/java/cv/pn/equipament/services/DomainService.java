@@ -8,5 +8,6 @@ public interface DomainService {
     APIResponse insertDomain(DomainDTO domainDTO);
     APIResponse updateDomain(String id, DomainDTO domainDTO);
     APIResponse getDomain(String id);
-    APIResponse getAllDomain(String selfId);
+    APIResponse getAllDomain(String selfId, String D);
+
 }

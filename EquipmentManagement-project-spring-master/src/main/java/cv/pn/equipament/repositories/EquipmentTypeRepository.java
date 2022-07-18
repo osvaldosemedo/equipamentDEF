@@ -9,5 +9,7 @@ import java.util.Optional;
 public interface EquipmentTypeRepository extends JpaRepository<EquipmentType, String> {
     Optional<EquipmentType> findByCode(String Code);
     List<EquipmentType> findBySelfId(String SelfId);
+    //List<EquipmentType> findAll();
+
 
 }
