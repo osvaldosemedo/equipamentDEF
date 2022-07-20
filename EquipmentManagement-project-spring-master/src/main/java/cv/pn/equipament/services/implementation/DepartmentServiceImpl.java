@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomAlphabetic;
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomNumber;
+
 
 @RequiredArgsConstructor
 @Service
@@ -31,17 +34,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public APIResponse insertDepartment(DepartmentDTO departmentDTO) {
 
-        Optional<Department> optionalDepartment = departmentRepository.findByCode(departmentDTO.getCode());
-        if (!optionalDepartment.isEmpty()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Departamento ")).build();
-
-        }
-
         Department department = new Department();
 
         try {
+            int i = getRandomNumber(000,999);
+            String s = getRandomAlphabetic(2);
             department.setName(departmentDTO.getName());
-            department.setCode(departmentDTO.getCode());
+            department.setCode(s.concat(String.valueOf(i)));
             department.setSelfId(departmentDTO.getSelfId());
             department.setUserCreated(departmentDTO.getUserCreated());
 
@@ -69,7 +68,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         try {
             department.setName(departmentDTO.getName());
-            department.setCode(departmentDTO.getCode());
             department.setUserCreated(departmentDTO.getUserCreated());
 
             departmentRepository.save(department);

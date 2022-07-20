@@ -19,6 +19,9 @@ public class Employee extends CommonsAttributes {
     @Column(name = "patent", nullable = true, columnDefinition = "character varying(100)")
     private String patent;
 
+    @Column(name = "email", nullable = true, columnDefinition = "character varying(40)")
+    private String email;
+
     @Column(name = "dm_type_user", nullable = true, columnDefinition = "character varying(40)")
     private String dmTypeUser;
 

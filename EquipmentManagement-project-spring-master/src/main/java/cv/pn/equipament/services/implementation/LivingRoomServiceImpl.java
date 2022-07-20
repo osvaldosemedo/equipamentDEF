@@ -66,7 +66,6 @@ public class LivingRoomServiceImpl implements LivingRoomService {
           livingRoom.setName(livingRoomDTO.getName());
           livingRoom.setNumber(livingRoomDTO.getNumber());
           livingRoom.setDmPiso(livingRoomDTO.getDmPiso());
-          livingRoom.setDmDivision(livingRoomDTO.getDmDivision());
           livingRoom.setContactPhone(livingRoomDTO.getContactPhone());
 
 
@@ -96,10 +95,10 @@ public class LivingRoomServiceImpl implements LivingRoomService {
 
         LivingRoomDTO livingRoomDTO = new LivingRoomDTO();
 
+        livingRoomDTO.setIdDepartment(livingRoom.getDepartment().getId());
         livingRoomDTO.setName(livingRoom.getName());
         livingRoomDTO.setNumber(livingRoom.getNumber());
         livingRoomDTO.setDmPiso(livingRoom.getDmPiso());
-        livingRoomDTO.setDmDivision(livingRoom.getDmDivision());
         livingRoomDTO.setContactPhone(livingRoom.getContactPhone());
 
         return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(livingRoomDTO)).build();
@@ -111,11 +110,7 @@ public class LivingRoomServiceImpl implements LivingRoomService {
 
     @Override
     public APIResponse getAllLivingRoom() {
-        List<LivingRoom> livingRooms = livingRoomRepository.findAll();
 
-        /*List<Object> livingRoomDTOS = livingRooms.stream()
-                .map(livingRoom -> new LivingRoomDTO(livingRoom.getId(),livingRoom.getName(),livingRoom.getNumber(),livingRoom.getDmPiso(),livingRoom.getDmDivision(),livingRoom.getContactPhone())
-                ).collect(Collectors.toList());*/
         return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(livingRoomRepository.findAll())).build();
 
     }
