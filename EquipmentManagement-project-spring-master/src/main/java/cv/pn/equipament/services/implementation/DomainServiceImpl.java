@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomAlphabetic;
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomNumber;
+
 
 @RequiredArgsConstructor
 @Service
@@ -27,17 +30,15 @@ public class DomainServiceImpl implements DomainService {
     @Override
     public APIResponse insertDomain(DomainDTO domainDTO) {
 
-        Optional<Domain> optionalDomain = domainRepository.findByCode(domainDTO.getCode());
-        if(!optionalDomain.isEmpty()){
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Dominio ")).build();
 
-        }
 
         Domain domain = new Domain();
 
         try {
+            int i = getRandomNumber(000,999);
+            String s = getRandomAlphabetic(2);
             domain.setName(domainDTO.getName());
-            domain.setCode(domainDTO.getCode());
+            domain.setCode(s.concat(String.valueOf(i)));
             domain.setDomain(domainDTO.getDomain());
             domain.setOrder(domainDTO.getOrder());
             domain.setSelfId(domainDTO.getSelfId());
@@ -65,7 +66,6 @@ public class DomainServiceImpl implements DomainService {
 
         try {
             domain.setName(domainDTO.getName());
-            domain.setCode(domainDTO.getCode());
             domain.setDomain(domainDTO.getDomain());
             domain.setOrder(domainDTO.getOrder());
             domain.setSelfId(domainDTO.getSelfId());

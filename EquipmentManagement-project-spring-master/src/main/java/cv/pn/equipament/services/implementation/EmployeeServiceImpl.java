@@ -4,6 +4,7 @@ import cv.pn.equipament.dtos.EmployeeDTO;
 import cv.pn.equipament.models.Employee;
 import cv.pn.equipament.repositories.EmployeeRepository;
 
+import cv.pn.equipament.repositories.LivingRoomRepository;
 import cv.pn.equipament.services.EmployeeService;
 import cv.pn.equipament.utilities.APIResponse;
 import cv.pn.equipament.utilities.MessageState;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+
 
 
     @Override
@@ -86,10 +88,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         try {
             EmployeeDTO employeeDTO = new EmployeeDTO();
 
+            employeeDTO.setId(employee.getId());
             employeeDTO.setName(employee.getName());
             employeeDTO.setFunction(employee.getFunction());
             employeeDTO.setPatent(employee.getPatent());
             employeeDTO.setDmTypeUser(employee.getDmTypeUser());
+
+
 
 
         return APIResponse.builder().status(true).statusText(MessageState.SUCESSO).details(Arrays.asList(employeeDTO)).build();

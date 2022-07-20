@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomAlphabetic;
+import static cv.pn.equipament.utilities.ApiUtilities.getRandomNumber;
+
 @RequiredArgsConstructor
 @Service
 public class EquipmentTypeServiceImpl implements EquipmentTypeService {
@@ -23,18 +26,15 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
     @Override
     public APIResponse insertEquipmentType(EquipmentTypeDTO equipmentTypeDTO) {
 
-        Optional<EquipmentType> optionalEquipmentType = equipmentTypeRepository.findByCode(equipmentTypeDTO.getCode());
-        if (!optionalEquipmentType.isEmpty()) {
-            return APIResponse.builder().status(false).statusText(MessageState.ERRO_DE_INSERCAO).details(Arrays.asList("Tipo Equipamento")).build();
-
-        }
 
         EquipmentType equipmentType = new EquipmentType();
 
         try {
 
+            int i = getRandomNumber(000,999);
+            String s = getRandomAlphabetic(2);
             equipmentType.setName(equipmentTypeDTO.getName());
-            equipmentType.setCode(equipmentTypeDTO.getCode());
+            equipmentType.setCode(s.concat(String.valueOf(i)));
             equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
 
             equipmentTypeRepository.save(equipmentType);
@@ -57,7 +57,6 @@ public class EquipmentTypeServiceImpl implements EquipmentTypeService {
 
         try {
             equipmentType.setName(equipmentTypeDTO.getName());
-            equipmentType.setCode(equipmentTypeDTO.getCode());
             equipmentType.setSelfId(equipmentTypeDTO.getSelfId());
 
             equipmentTypeRepository.save(equipmentType);

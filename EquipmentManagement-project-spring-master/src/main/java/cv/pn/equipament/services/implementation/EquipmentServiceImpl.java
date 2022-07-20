@@ -187,7 +187,6 @@ public class EquipmentServiceImpl implements EquipmentService {
             livingRoomDTO.setName(equipment.getLivingRoom().getName());
             livingRoomDTO.setNumber(equipment.getLivingRoom().getNumber());
             livingRoomDTO.setDmPiso(equipment.getLivingRoom().getDmPiso());
-            livingRoomDTO.setDmDivision(equipment.getLivingRoom().getDmDivision());
             livingRoomDTO.setContactPhone(equipment.getLivingRoom().getContactPhone());
 
 
